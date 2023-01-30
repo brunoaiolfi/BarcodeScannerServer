@@ -23,32 +23,28 @@
 
 ## Rotas públicas:
 
-| Rota    | Método | Descrição |
-|---------|--------|-----------|
-| /signIn | POST   | Login     |
+| Rota           | Método | Descrição                        |
+|----------------|--------|----------------------------------|
+| /user          | POST   | Cadastra um usuário              |
+| /login         | POST   | Login na aplicação               |
 
-## Rotas privadas:
+## Rotas privadas (Precisam do token do usuário):
 
 ### USUÁRIO
 
-| Rota                  | Método | Descrição                        |
-|-----------------------|--------|----------------------------------|
-| /user                 | POST   | Cadastrar usuário                |
-| /user?id              | PUT    | Editar usuário                   |
-| /user/editPassword?id | PATCH  | Editar senha do usuário          |
-| /user/all             | GET    | Pegar todos usuários             |
-| /user/byId?id         | GET    | Pegar usuário pelo id            |
-| /user/byEmail?email   | GET    | Pegar usuário pelo email         |
-| /me                   | GET    | Pegar os dados do usuário logado |
-| /user?id              | DEL    | Deletar usuário                  |
+| Rota           | Método | Descrição                        |
+|----------------|--------|----------------------------------|
+| /user/all      | GET    | Lista todos os usuários          |
+| /user/byId?id  | GET    | Encontra um usuário pelo id      |
+| /user?id       | PUT    | Edita um usuário                 |
 
 ### PRODUTOS
 
-| Rota             | Método | Descrição             |
-|------------------|--------|-----------------------|
-| /Product         | POST   | Cadastrar produto     |
-| /Product?id      | PUT    | Editar produto        |
-| /Product/all     | GET    | Pegar todos produtos  |
-| /Product/byId?id | GET    | Pegar produto pelo id |
-| /Product?id      | DEL    | Deletar produto       |
+| Rota             | Método | Descrição                   |
+|------------------|--------|-----------------------------|
+| /product         | POST   | Cadastra um produto         |
+| /product?id      | PUT    | Edita um produto            |
+| /product/all     | GET    | Lista todos os produtos     |
+| /product/byId?id | GET    | Encontra um produto pelo id |
+
 
