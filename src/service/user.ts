@@ -1,11 +1,15 @@
 import { PrismaClient } from "@prisma/client";
 import { User } from "@prisma/client";
-import { generateHash } from "../utils/generateHash";
 
 const prisma = new PrismaClient();
 
 export const UserService = {
-  getByEmailAndPassword: async (email: string, password: string) => {
+  listAll: async () => {
+    const users = await prisma.user.findMany();
+    return users.map((user) => ({ ...user, password: "" }));
+  },
+
+  findByEmailAndPassword: async (email: string, password: string) => {
     const user = await prisma.user.findFirst({
       where: {
         email,
@@ -15,7 +19,8 @@ export const UserService = {
 
     return user;
   },
-  getByEmail: async (email: string) => {
+
+  findByEmail: async (email: string) => {
     const user = await prisma.user.findUnique({
       where: {
         email,
@@ -25,8 +30,18 @@ export const UserService = {
     return user;
   },
 
+  findById: async (id: number) => {
+    const user = await prisma.user.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return user;
+  },
+
   create: async ({ email, name, password }: User) => {
-    const newUser = await prisma.user.create({
+    const user = await prisma.user.create({
       data: {
         email,
         name,
@@ -34,6 +49,21 @@ export const UserService = {
       },
     });
 
-    return newUser;
+    return user;
+  },
+
+  update: async ({ email, id, name, password }: User) => {
+    const user = await prisma.user.update({
+      data: {
+        email,
+        name,
+        password,
+      },
+      where: {
+        id,
+      },
+    });
+
+    return user;
   },
 };
