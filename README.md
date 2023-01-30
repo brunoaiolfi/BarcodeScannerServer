@@ -1,12 +1,12 @@
-# DashGo-server
+# BarcodeScanner
 
 ## Sobre o projeto:
 
-- DashGo é uma aplicação desenvolvida durante o curso ignite da rocketseat. Porém durante o curso apenas desenvolvemos o front end. Este projeto vem para suprir a falta de uma API.
+- BarcodeScanner é uma aplicação desenvolvida para o cadastro de produtos.
 
 ## Sobre a API:
 
-- Esta api tem o intuito de fazer o CRUD de usuários.
+- Esta api tem o intuito de fazer o CRUD de produtos.
 
 ## Ferramentas utilizadas:
 
@@ -42,16 +42,6 @@
 | /me                   | GET    | Pegar os dados do usuário logado |
 | /user?id              | DEL    | Deletar usuário                  |
 
-### CLIENTES
-
-| Rota            | Método | Descrição             |
-|-----------------|--------|-----------------------|
-| /Client         | POST   | Cadastrar cliente     |
-| /Client         | PUT    | Editar cliente        |
-| /Client/All     | GET    | Pegar todos clientes  |
-| /Client/byId?id | GET    | Pegar cliente pelo id |
-| /Client?id      | DEL    | Deletar cliente       |
-
 ### PRODUTOS
 
 | Rota             | Método | Descrição             |
@@ -61,20 +51,4 @@
 | /Product/all     | GET    | Pegar todos produtos  |
 | /Product/byId?id | GET    | Pegar produto pelo id |
 | /Product?id      | DEL    | Deletar produto       |
-
-### ESTOQUE DE PRODUTO
-
-| Rota           | Método | Descrição                           |
-|----------------|--------|-------------------------------------|
-| /Stock         | POST   | Cadastrar estoque de produto        |
-| /Stock?id      | PUT    | Editar estoque de produto           |
-| /Stock/all     | GET    | Pegar todos os estoques de produtos |
-| /Stock/byId?id | GET    | Pegar estoque de produto pelo id    |
-
-### COMPRAS
-
-| Rota           | Método | Descrição                        |
-|----------------|--------|----------------------------------|
-| /Purchases     | POST   | Cadastra uma venda               |
-| /Purchases/all | GET    | Pegar todas as compras           |
 
