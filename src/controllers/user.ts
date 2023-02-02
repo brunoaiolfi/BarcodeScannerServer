@@ -9,13 +9,13 @@ export const UserController = {
   create: async (req: Request, res: Response) => {
     try {
       const { name, email, password }: User = req.body;
-
+      
       if (!email || !name || !password) {
         return res.status(400).send("Preencha todos os campos corretamente!");
       }
-
+      
       const existentUser = await UserService.findByEmail(email);
-
+      
       if (existentUser?.id) {
         return res.status(409).send("Usuário já cadastrado!");
       }
@@ -96,10 +96,11 @@ export const UserController = {
 
       return res.status(200).send({
         ...existentUser,
-        password: "",
         token,
-        loggedAt: new Date().toISOString(),
+        expireIn: 12,
+        loggedAt: new Date(),
       });
+
     } catch (error) {
       return res.status(500).send("Ocorreu um erro interno");
     }

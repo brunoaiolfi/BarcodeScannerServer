@@ -17,6 +17,6 @@ export function generateToken(user: User) {
     id,
   };
 
-  const token = sign(tokenData, String(SECRET), { expiresIn: "2 days" });
+  const token = sign(tokenData, String(SECRET), { expiresIn: "12h" });
   return token;
 }
